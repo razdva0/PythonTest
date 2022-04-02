@@ -1,7 +1,6 @@
 import random
 from time import sleep
 from datetime import datetime
-import pygame
 
 
 class Minesweeper:
