@@ -33,4 +33,4 @@ def maxSequence(arr):
             curr = 0
         if curr > maximum:
             maximum = curr
-    return max
+    return maximum
