@@ -1,3 +1,4 @@
+#  Функция определения высоты ёлки
 def ft_length(n):
     length = 0
     for l in range(1, n + 1):
@@ -7,34 +8,34 @@ def ft_length(n):
 
 def plant_forest(*args):
     lst = [*args]
-    length = ft_length(max(lst))
-    result = [''] * length
+    length = ft_length(max(lst))  # Находим высоту самой высокой ёлки
+    result = [''] * length  # Создаём макет куда будем записывать ряды каждой ёлки
     for x in lst:
         i = -1
         ladder = length - 1
-        tmp_len = ft_length(x)
+        tmp_len = ft_length(x)  # Находим высоту ёлкки, которую добавляем в макет
         j = x
         for z in range(length - 1, -1, -1):
-            if length - tmp_len <= z:
-                flag = 0
+            if length - tmp_len <= z:  # Если мы уже отрисовали ёлку, то в исключении запишем пустые строки
+                flag = 0  # Флаг(костыль) для исключения отрисовывания только одного символа
                 for k in range(x - 1 - i, -1, -1):
                     tmp = ''
-                    tmp += ' ' * (x - k)
-                    tmp += '*' * (1 + k * 2)
-                    tmp += ' ' * (x - k)
-                    if flag != 0 or k != 0:
-                        result[ladder] += tmp
-                        ladder -= 1
-                    flag += 1
+                    tmp += ' ' * (x - k)  # Добавляем пустую строку чтобы ёлка рисовалась корректно
+                    tmp += '*' * (1 + k * 2)  # Отрисовываем саму ёлку
+                    tmp += ' ' * (x - k)  # Добавляем пустую строку чтобы ёлка рисовалась корректно
+                    if flag != 0 or k != 0:  # Исключаем отрисовывание только одного символа
+                        result[ladder] += tmp  # Добавляем в нужный ряд готовую строку
+                        ladder -= 1  # Смещаемся на этап выше
+                    flag += 1  # Флаг(костыль) для исключения отрисовывания только одного символа
             else:
-                result[ladder] += ' ' * (1 + x * 2)
-                ladder -= 1
+                result[ladder] += ' ' * (1 + x * 2)  # Исключение с пустыми строками
+                ladder -= 1  # Смещаемся на этап выше
             i += 1
             j -= 1
-    print('#' * (len(result[0]) + 2))
+    print('#' * (len(result[0]) + 2))  # Верхняя рамка картины
     for x in result:
-        print('#' + x + '#')
-    print('#' * (len(result[0]) + 2))
+        print('#' + x + '#')  # Выводим на экран карину по линиям
+    print('#' * (len(result[0]) + 2))  # Нижняя рамка картины
 
 
 plant_forest(3, 2, 5, 4, 2, 3)  # Рисует ёлочки разной высоты
