@@ -1,4 +1,5 @@
 def is_palindrome(string):
+    #  lst = [*filter(str.isalpha, string.lower())]
     tmp = [x for x in string.upper() if 65 <= ord(x) <= 90]
     return tmp == tmp[::-1]
 
