@@ -10,6 +10,7 @@ def order_weight(strng):
         for z in sorted(x[1], key=lambda s: s):
             result.append(z)
     return ' '.join(x for x in result)
+    # return ' '.join(sorted(sorted(_str.split(' ')), key=lambda x: sum(int(c) for c in x)))
 
 
 if order_weight("103 123 4444 99 2000") == "2000 103 123 4444 99":
