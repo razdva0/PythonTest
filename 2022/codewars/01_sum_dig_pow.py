@@ -1,6 +1,6 @@
 def sum_dig_pow(a, b):
     result = []
-    for x in range(a, b, 1):
+    for x in range(a, b + 1):
         s = str(x)
         n = 0
         i = 1
